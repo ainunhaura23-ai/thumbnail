@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jasa Thumbnail Murce - Pembuatan Thumbnail YouTube Cepat & Murah</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-pink: #ff6b9d;
+            --light-pink: #ffd6e0;
+            --soft-pink: #fff5f7;
+            --white: #ffffff;
+            --dark-text: #333333;
+            --gray-text: #666666;
+        }
+
+        body {
+            background-color: var(--white);
+            color: var(--dark-text);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        h1, h2, h3 {
+            margin-bottom: 20px;
+            color: var(--dark-text);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-pink);
+            border-radius: 2px;
+        }
+
+        p {
+            margin-bottom: 20px;
+            color: var(--gray-text);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-pink);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: #ff4d87;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 107, 157, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary-pink);
+            border: 2px solid var(--primary-pink);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--light-pink);
+            transform: translateY(-3px);
+        }
+
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-pink);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-pink);
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark-text);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--soft-pink) 0%, var(--white) 100%);
+            padding: 150px 0 100px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            color: var(--gray-text);
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .delivery-badge {
+            display: inline-flex;
+            align-items: center;
+            background-color: var(--light-pink);
+            color: var(--primary-pink);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-top: 20px;
+        }
+
+        .delivery-badge i {
+            margin-right: 8px;
+        }
+
+        .features {
+            background-color: var(--white);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background-color: var(--soft-pink);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary-pink);
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 15px;
+        }
+
+        .portfolio {
+            background-color: var(--soft-pink);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .portfolio-item {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            background-color: var(--white);
+            position: relative;
+        }
+
+        .portfolio-item:hover {
+            transform: scale(1.05);
+        }
+
+        .portfolio-img {
+            width: 100%;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portfolio-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 107, 157, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-overlay span {
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .portfolio-title {
+            padding: 15px;
+            text-align: center;
+            background-color: var(--white);
+        }
+
+        .portfolio-title h3 {
+            margin-bottom: 5px;
+            color: var(--dark-text);
+        }
+
+        .portfolio-title p {
+            margin: 0;
+            color: var(--gray-text);
+            font-size: 0.9rem;
+        }
+
+        .pricing {
+            background-color: var(--white);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .pricing-card {
+            background-color: var(--soft-pink);
+            border-radius: 15px;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .pricing-card.popular {
+            background: linear-gradient(135deg, var(--primary-pink) 0%, #ff8ab3 100%);
+            color: var(--white);
+            transform: scale(1.05);
+        }
+
+        .pricing-card.popular:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+
+        .pricing-card.popular h3,
+        .pricing-card.popular .price,
+        .pricing-card.popular .price span,
+        .pricing-card.popular ul li {
+            color: var(--white);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #ffcc00;
+            color: var(--dark-text);
+            padding: 5px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .price {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--primary-pink);
+        }
+
+        .price span {
+            font-size: 1rem;
+            color: var(--gray-text);
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .pricing-card ul li {
+            margin-bottom: 15px;
+            color: var(--gray-text);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .pricing-card ul li i {
+            margin-right: 10px;
+            color: var(--primary-pink);
+        }
+
+        .pricing-card.popular ul li i {
+            color: var(--white);
+        }
+
+        .testimonials {
+            background-color: var(--soft-pink);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--light-pink);
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-pink);
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        .testimonial-info h4 {
+            margin-bottom: 5px;
+        }
+
+        .testimonial-info p {
+            margin: 0;
+            color: var(--gray-text);
+            font-size: 0.9rem;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: var(--gray-text);
+        }
+
+        .rating {
+            color: #ffcc00;
+            margin-top: 10px;
+        }
+
+        .cta {
+            background: linear-gradient(135deg, var(--primary-pink) 0%, #ff8ab3 100%);
+            color: var(--white);
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .cta h2 {
+            color: var(--white);
+        }
+
+        .cta h2::after {
+            background-color: var(--white);
+        }
+
+        .cta p {
+            color: var(--white);
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .cta-buttons.cta-section {
+            justify-content: center;
+        }
+
+        .btn-cta {
+            background-color: var(--white);
+            color: var(--primary-pink);
+        }
+
+        .btn-cta:hover {
+            background-color: var(--light-pink);
+            transform: translateY(-3px);
+        }
+
+        footer {
+            background-color: var(--dark-text);
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            color: var(--white);
+            margin-bottom: 25px;
+            font-size: 1.3rem;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 15px;
+        }
+
+        .footer-column ul li a {
+            color: #cccccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--primary-pink);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary-pink);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #cccccc;
+            font-size: 0.9rem;
+        }
+
+        /* Form Order Styles */
+        .order-form {
+            background-color: var(--soft-pink);
+            padding: 60px 0;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark-text);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary-pink);
+            outline: none;
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .form-submit {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .success-message {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.6rem;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                text-align: center;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 250px;
+            }
+
+            .pricing-card.popular {
+                transform: scale(1);
+            }
+
+            .pricing-card.popular:hover {
+                transform: scale(1) translateY(-10px);
+            }
+
+            .form-container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">Jasa Thumbnail Murce</a>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#features">Keunggulan</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#pricing">Paket Harga</a></li>
+                    <li><a href="#testimonials">Testimoni</a></li>
+                    <li><a href="#order" class="btn btn-primary">Order Sekarang</a></li>
+                </ul>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Thumbnail YouTube Menarik, <span style="color: var(--primary-pink);">Siap dalam 24-48 Jam!</span></h1>
+                <p>Tingkatkan CTR (Click-Through Rate) channel YouTube Anda dengan thumbnail profesional yang dibuat khusus untuk konten Anda. Proses cepat, hasil maksimal, harga terjangkau untuk pelajar!</p>
+                <div class="cta-buttons">
+                    <a href="#pricing" class="btn btn-primary">Lihat Paket Harga</a>
+                    <a href="#portfolio" class="btn btn-secondary">Lihat Contoh Karya</a>
+                </div>
+                <div class="delivery-badge">
+                    <i class="fas fa-bolt"></i>
+                    <span>Garansi pengerjaan 24-48 jam</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="container">
+            <h2>Mengapa Memilih Kami?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Super Cepat</h3>
+                    <p>Thumbnail siap dalam 24-48 jam setelah konfirmasi pesanan. Tidak perlu menunggu lama!</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>Desain Kreatif</h3>
+                    <p>Tim desainer muda dengan ide-ide segar dan sesuai tren terbaru YouTube.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3>Revisi Gratis</h3>
+                    <p>Dapatkan revisi tanpa biaya tambahan hingga Anda puas dengan hasilnya.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <h3>Harga Murah</h3>
+                    <p>Harga terjangkau mulai dari Rp 30.000, cocok untuk budget pelajar dan creator pemula.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <h2>Contoh Karya Kami</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <div class="portfolio-img">
+                        <img src="https://cdn.discordapp.com/attachments/1428358195759550508/1443556056557948998/WhatsApp_Image_2025-11-27_at_16.41.41_d65ea8ee.jpg?ex=69297fd7&is=69282e57&hm=f8c3b1a7ec34cbb7e6e457bd435c4e20d2aee754ba34d4c924943738e87b5123" alt="Daily Vlog Thumbnail">
+                        <div class="portfolio-overlay">
+                            <span>Daily Vlog Thumbnail</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-title">
+                        <h3>Daily Vlog Fun Time</h3>
+                        <p>Thumbnail untuk konten vlog sehari-hari dengan konsep fun dan colorful</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-img">
+                        <img src="https://cdn.discordapp.com/attachments/1428358195759550508/1443556241602515045/WhatsApp_Image_2025-11-27_at_16.41.41_f7f36061.jpg?ex=69298003&is=69282e83&hm=633f86166c86409dcc0d1e0e71a1420135f8b1b35ccd5148b423572aeefa820c" alt="Beautiful Sunset Thumbnail">
+                        <div class="portfolio-overlay">
+                            <span>Beautiful Sunset Thumbnail</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-title">
+                        <h3>Beautiful Sunset Vlog</h3>
+                        <p>Thumbnail aesthetic untuk travel vlog dengan tema sunset yang menawan</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-img">
+                        <img src="https://cdn.discordapp.com/attachments/1428358195759550508/1443556696709533768/WhatsApp_Image_2025-11-27_at_16.41.40_a6855275.jpg?ex=69298070&is=69282ef0&hm=6f5d40cd2e47504b7bb790960fdcba05f6fa1ee711bd789677e6d9e1a0685d21" alt="Live Streaming Thumbnail">
+                        <div class="portfolio-overlay">
+                            <span>Live Streaming Thumbnail</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-title">
+                        <h3>Live Streaming Gaming</h3>
+                        <p>Thumbnail energik untuk live streaming gaming dengan efek dinamis</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-img">
+                        <img src="https://cdn.discordapp.com/attachments/1428358195759550508/1443556187554713685/WhatsApp_Image_2025-11-27_at_16.41.41_f6b6e7b8.jpg?ex=69297ff7&is=69282e77&hm=a9231b4dad13bc758e5ce7ef18686b6fb5817e3ba51aa93adabf7fb4ea6204d2" alt="Mini Vlog Thumbnail">
+                        <div class="portfolio-overlay">
+                            <span>Mini Vlog Thumbnail</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-title">
+                        <h3>Mini Vlog</h3>
+                        <p>Thumbnail untuk konten mini vlog dengan gaya simpel dan menarik</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2>Paket Harga Terjangkau</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Paket Basic</h3>
+                    <div class="price">Rp 30.000 <span>/thumbnail</span></div>
+                    <ul>
+                        <li><i class="fas fa-check"></i> 1 Desain Thumbnail Sederhana</li>
+                        <li><i class="fas fa-check"></i> Revisi 1x</li>
+                        <li><i class="fas fa-check"></i> Pengerjaan 48 jam</li>
+                        <li><i class="fas fa-check"></i> Format PNG</li>
+                        <li><i class="fas fa-times"></i> Source File</li>
+                    </ul>
+                    <a href="#order" class="btn btn-primary">Pilih Paket</a>
+                </div>
+                <div class="pricing-card popular">
+                    <div class="popular-badge">Paling Populer</div>
+                    <h3>Paket Standard</h3>
+                    <div class="price">Rp 40.000 <span>/thumbnail</span></div>
+                    <ul>
+                        <li><i class="fas fa-check"></i> 1 Desain Thumbnail Menarik</li>
+                        <li><i class="fas fa-check"></i> Revisi 2x</li>
+                        <li><i class="fas fa-check"></i> Pengerjaan 36 jam</li>
+                        <li><i class="fas fa-check"></i> Format PNG & JPG</li>
+                        <li><i class="fas fa-check"></i> Source File (PSD)</li>
+                    </ul>
+                    <a href="#order" class="btn btn-cta">Pilih Paket</a>
+                </div>
+                <div class="pricing-card">
+                    <h3>Paket Premium</h3>
+                    <div class="price">Rp 50.000 <span>/thumbnail</span></div>
+                    <ul>
+                        <li><i class="fas fa-check"></i> 1 Desain Thumbnail Premium</li>
+                        <li><i class="fas fa-check"></i> Revisi 3x</li>
+                        <li><i class="fas fa-check"></i> Pengerjaan 24 jam</li>
+                        <li><i class="fas fa-check"></i> Format PNG, JPG, PSD</li>
+                        <li><i class="fas fa-check"></i> Source File + Element Terpisah</li>
+                    </ul>
+                    <a href="#order" class="btn btn-primary">Pilih Paket</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <h2>Apa Kata Klien Kami?</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">SW</div>
+                        <div class="testimonial-info">
+                            <h4>Sarah Wijaya</h4>
+                            <p>Content Creator Lifestyle</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-text">
+                        <p>"Thumbnail yang dibuat sangat menarik dan sesuai dengan konten saya. Proses pengerjaannya cepat sekali, hanya 1 hari sudah selesai. CTR video saya naik 40% setelah menggunakan jasa mereka!"</p>
+                    </div>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">RP</div>
+                        <div class="testimonial-info">
+                            <h4>Rizky Pratama</h4>
+                            <p>Pelajar & YouTuber</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-text">
+                        <p>"Sebagai pelajar, budget saya terbatas. Tapi dengan harga yang terjangkau, saya dapat thumbnail keren untuk channel saya. Pelayanannya ramah dan cepat!"</p>
+                    </div>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">DL</div>
+                        <div class="testimonial-info">
+                            <h4>Dewi Lestari</h4>
+                            <p>YouTuber Edukasi</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-text">
+                        <p>"Saya sudah coba beberapa jasa pembuatan thumbnail, tapi yang ini paling memuaskan. Hasilnya profesional, proses revisinya mudah, dan harganya terjangkau. Recommended banget!"</p>
+                    </div>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="order-form" id="order">
+        <div class="container">
+            <h2>Form Pemesanan</h2>
+            <div class="form-container">
+                <div class="success-message" id="successMessage">
+                    Terima kasih! Pesanan Anda telah berhasil dikirim. Kami akan menghubungi Anda dalam waktu 1x24 jam.
+                </div>
+                <form id="orderForm">
+                    <div class="form-group">
+                        <label for="name">Nama Lengkap</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Nomor WhatsApp</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="package">Pilih Paket</label>
+                        <select id="package" name="package" required>
+                            <option value="">-- Pilih Paket --</option>
+                            <option value="basic">Paket Basic - Rp 30.000</option>
+                            <option value="standard">Paket Standard - Rp 40.000</option>
+                            <option value="premium">Paket Premium - Rp 50.000</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Deskripsi Thumbnail (Tema, Warna, Konsep)</label>
+                        <textarea id="description" name="description" required></textarea>
+                    </div>
+                    <div class="form-submit">
+                        <button type="submit" class="btn btn-primary">Pesan Sekarang</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta" id="cta">
+        <div class="container">
+            <h2>Siap Meningkatkan CTR YouTube Anda?</h2>
+            <p>Jangan lewatkan kesempatan untuk membuat thumbnail yang menarik perhatian penonton. Pesan sekarang dan dapatkan thumbnail profesional dalam waktu singkat dengan harga terjangkau!</p>
+            <div class="cta-buttons cta-section">
+                <a href="https://wa.me/6285693840064?text=Halo,%20saya%20ingin%20konsultasi%20tentang%20pembuatan%20thumbnail" class="btn btn-cta">
+                    <i class="fab fa-whatsapp"></i> Order via WhatsApp
+                </a>
+                <a href="#order" class="btn btn-secondary">
+                    <i class="fas fa-envelope"></i> Order via Form
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Jasa Thumbnail Murce</h3>
+                    <p>Layanan pembuatan thumbnail YouTube profesional dengan fokus pada kecepatan dan kualitas. Tingkatkan performa channel YouTube Anda bersama kami.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Layanan</h3>
+                    <ul>
+                        <li><a href="#">Pembuatan Thumbnail</a></li>
+                        <li><a href="#">Desain Banner YouTube</a></li>
+                        <li><a href="#">Konsultasi Konten</a></li>
+                        <li><a href="#">Template Thumbnail</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Kontak</h3>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> 0856-9384-0064</li>
+                        <li><i class="fas fa-envelope"></i> ainunhaura23@gmail.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Bekasi, Indonesia</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Jasa Thumbnail Murce. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    document.querySelector('.nav-links').classList.remove('active');
+                }
+            });
+        });
+
+        // Form Submission with Local Storage (Simple Database)
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                package: document.getElementById('package').value,
+                description: document.getElementById('description').value,
+                timestamp: new Date().toISOString()
+            };
+            
+            // Save to localStorage (simple database simulation)
+            let orders = JSON.parse(localStorage.getItem('thumbnailOrders') || '[]');
+            orders.push(formData);
+            localStorage.setItem('thumbnailOrders', JSON.stringify(orders));
+            
+            // Show success message
+            document.getElementById('successMessage').style.display = 'block';
+            
+            // Reset form
+            document.getElementById('orderForm').reset();
+            
+            // Scroll to success message
+            document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth' });
+            
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+                document.getElementById('successMessage').style.display = 'none';
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
